@@ -14,9 +14,14 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\QueueController;
+use App\Http\Controllers\TvDisplayController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingController::class, 'index'])->name('landing');
+
+// TV Display Routes (Public - tanpa auth)
+Route::get('/tv-display', [TvDisplayController::class, 'index'])->name('tv.display');
+Route::get('/api/tv-queue', [TvDisplayController::class, 'getQueueData'])->name('api.tv.queue');
 
 // Queue API & Display
 Route::get('/display/antrean', [QueueController::class, 'index'])->name('display.antrean');
@@ -49,6 +54,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/antrean-harian', [DashboardController::class, 'adminQueue'])->name('admin.queue');
         Route::get('/admin/audit-log', [AuditLogController::class, 'index'])->name('audit.index');
         Route::post('/admin/antrean-harian/panggil-berikutnya', [AdminAntreanController::class, 'callNext'])->middleware('throttle:30,1')->name('admin.queue.call_next');
+        Route::post('/api/tv-display/call-next', [TvDisplayController::class, 'callNext'])->middleware('throttle:30,1')->name('api.tv.call_next');
         Route::patch('/admin/antrean/{antrean}/status', [AdminAntreanController::class, 'updateStatus'])->middleware('throttle:60,1')->name('admin.queue.update_status');
         Route::post('/admin/dokter', [DokterController::class, 'store'])->name('dokter.store');
         Route::patch('/admin/dokter/{dokter}', [DokterController::class, 'update'])->name('dokter.update');
