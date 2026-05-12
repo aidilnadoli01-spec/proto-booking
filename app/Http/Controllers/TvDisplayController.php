@@ -17,6 +17,14 @@ class TvDisplayController extends Controller
     }
 
     /**
+     * Tampilkan admin panel untuk kontrol TV display
+     */
+    public function adminPanel()
+    {
+        return view('tv.admin-panel');
+    }
+
+    /**
      * API endpoint untuk fetch data antrean realtime
      * Dipanggil setiap 3 detik untuk update display
      */
