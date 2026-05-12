@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Auth;
 
 class UserManagementController extends Controller
 {
@@ -66,7 +67,7 @@ class UserManagementController extends Controller
 
     public function destroy(User $user): RedirectResponse
     {
-        if ($user->id === auth()->id()) {
+        if ($user->id === Auth::id()) {
             return back()->with('error', 'Anda tidak dapat menghapus akun Anda sendiri.');
         }
 
@@ -77,7 +78,7 @@ class UserManagementController extends Controller
 
     public function toggleStatus(User $user): RedirectResponse
     {
-        if ($user->id === auth()->id()) {
+        if ($user->id === Auth::id()) {
             return back()->with('error', 'Anda tidak dapat menonaktifkan akun Anda sendiri.');
         }
 
