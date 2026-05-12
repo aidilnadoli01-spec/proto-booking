@@ -10,6 +10,32 @@
             <div class="rounded-2xl shadow-lg p-5 text-white bg-gradient-to-r from-cyan-500 to-sky-600"><p class="text-sm opacity-90">Menunggu</p><p class="text-3xl font-bold">{{ $pendingQueue }}</p></div>
         </div>
 
+        <!-- TV Display Management -->
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-4">
+            <div class="bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl shadow-lg p-6 text-white">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="font-semibold text-lg mb-1">📺 TV Display Panel</h3>
+                        <p class="text-orange-100 text-sm">Kontrol antrean realtime</p>
+                    </div>
+                    <a href="{{ route('tv.admin') }}" class="bg-white text-orange-600 hover:bg-orange-50 font-bold py-2 px-4 rounded-lg transition text-sm">
+                        Buka →
+                    </a>
+                </div>
+            </div>
+            <div class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl shadow-lg p-6 text-white">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="font-semibold text-lg mb-1">🖥️ Fullscreen Display</h3>
+                        <p class="text-purple-100 text-sm">Layar antrian untuk TV</p>
+                    </div>
+                    <a href="{{ route('tv.display') }}" target="_blank" class="bg-white text-purple-600 hover:bg-purple-50 font-bold py-2 px-4 rounded-lg transition text-sm">
+                        Buka →
+                    </a>
+                </div>
+            </div>
+        </div>
+
         <div class="max-w-7xl mx-auto px-4">
             <div class="bg-white rounded-2xl shadow-lg p-6">
                 <h3 class="font-semibold text-slate-800 mb-4">Statistik Status Antrean</h3>

@@ -22,7 +22,7 @@ Route::get('/', [LandingController::class, 'index'])->name('landing');
 // TV Display Routes (Public - tanpa auth)
 Route::get('/tv-display', [TvDisplayController::class, 'index'])->name('tv.display');
 Route::get('/api/tv-queue', [TvDisplayController::class, 'getQueueData'])->name('api.tv.queue');
-Route::get('/tv-display/admin', [TvDisplayController::class, 'adminPanel'])->name('tv.admin')->middleware('auth');
+Route::get('/tv-display/admin', [TvDisplayController::class, 'adminPanel'])->name('tv.admin')->middleware(['auth', 'role:admin,super_admin']);
 
 // Queue API & Display
 Route::get('/display/antrean', [QueueController::class, 'index'])->name('display.antrean');

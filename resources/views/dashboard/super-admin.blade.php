@@ -10,6 +10,21 @@
             <div class="rounded-2xl shadow-lg p-5 text-white bg-gradient-to-r from-cyan-500 to-sky-600"><p class="text-sm opacity-90">Antrean Hari Ini</p><p class="text-3xl font-bold">{{ $todayQueue }}</p></div>
         </div>
 
+        <!-- TV Display Management -->
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl shadow-lg p-6 text-white">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="font-semibold text-lg mb-2">📺 Manajemen TV Display</h3>
+                        <p class="text-orange-100">Kontrol antrean realtime untuk layar TV di klinik</p>
+                    </div>
+                    <a href="{{ route('tv.admin') }}" class="bg-white text-orange-600 hover:bg-orange-50 font-bold py-2 px-6 rounded-lg transition duration-200">
+                        Buka Panel
+                    </a>
+                </div>
+            </div>
+        </div>
+
         <div class="max-w-7xl mx-auto px-4">
             <div class="bg-white rounded-2xl shadow-lg p-6">
                 <h3 class="font-semibold text-slate-800 mb-4">Tren Booking 7 Hari Terakhir</h3>
